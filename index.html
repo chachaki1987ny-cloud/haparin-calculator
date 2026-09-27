@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ヘパリン量計算ツール</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <header class="hero">
+        <p class="eyebrow">臨床工学技士向け</p>
+        <h1>ヘパリン量計算ツール</h1>
+        <p class="lead">
+          主治医へすぐ確認できない場面でも、添付文書基準や院内参考例を見ながら、大まかな量の検討と計算確認を行うための補助ツールです。
+        </p>
+      </header>
+
+      <section class="guide" aria-label="参考情報">
+        <h2>参考情報</h2>
+        <div class="guide-stack">
+          <article class="guide-card">
+            <p class="guide-kicker">決定値ではなく参考値</p>
+            <p class="guide-title">添付文書基準（全身ヘパリン化法）</p>
+            <ul>
+              <li>透析開始前: 1,000〜3,000 U</li>
+              <li>透析開始後: 500〜1,500 U/hr</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <form class="calculator" id="calculator">
+        <label class="field">
+          <span>初回量 (U)</span>
+          <input id="bolusUnitsInput" type="number" inputmode="decimal" min="0" step="1" placeholder="例: 2000">
+          <small class="field-note">医師指示または検討中の初回量を入力します。</small>
+        </label>
+
+        <label class="field">
+          <span>持続量 (U/hr)</span>
+          <input id="infusionUnitsPerHrInput" type="number" inputmode="decimal" min="0" step="1" placeholder="例: 1000">
+          <small class="field-note">持続投与量を入力すると、mL/hr が自動計算されます。</small>
+        </label>
+
+        <label class="field">
+          <span>透析時間 (hr)</span>
+          <input id="dialysisHours" type="number" inputmode="decimal" min="0" step="0.1" placeholder="例: 4">
+        </label>
+
+        <label class="field">
+          <span>総単位数 (U)</span>
+          <input id="syringeUnits" type="number" inputmode="decimal" min="0" step="0.1" placeholder="例: 5000" value="5000">
+          <small class="field-note">シリンジ内に含まれる総単位数を入力します。</small>
+        </label>
+
+        <label class="field">
+          <span>総mL (mL)</span>
+          <input id="syringeMl" type="number" inputmode="decimal" min="0" step="0.1" placeholder="例: 20" value="20">
+          <small class="field-note">入力内容からシリンジ濃度 (U/mL) を自動計算します。</small>
+        </label>
+
+        <button class="button" type="reset" id="resetButton">入力をクリア</button>
+      </form>
+
+      <section class="results" aria-live="polite">
+        <h2>計算結果</h2>
+
+        <div class="result-grid">
+          <article class="result-card concentration-result">
+            <p class="result-label">シリンジ濃度</p>
+            <p class="result-value" id="concentration">-</p>
+            <p class="result-unit">U/mL</p>
+          </article>
+
+          <article class="result-card">
+            <p class="result-label">初回量</p>
+            <p class="result-value" id="bolusUnits">-</p>
+            <p class="result-unit">U</p>
+          </article>
+
+          <article class="result-card">
+            <p class="result-label">初回量換算</p>
+            <p class="result-value" id="bolusMl">-</p>
+            <p class="result-unit">mL</p>
+          </article>
+
+          <article class="result-card">
+            <p class="result-label">持続量</p>
+            <p class="result-value" id="infusionUnitsPerHr">-</p>
+            <p class="result-unit">U/hr</p>
+          </article>
+
+          <article class="result-card">
+            <p class="result-label">mL/hr換算</p>
+            <p class="result-value" id="mlPerHr">-</p>
+            <p class="result-unit">mL/hr</p>
+          </article>
+
+          <article class="result-card total">
+            <p class="result-label">合計量</p>
+            <p class="result-value" id="totalUnits">-</p>
+            <p class="result-unit">U</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="notes">
+        <h2>注意</h2>
+        <article class="note-card">
+          <ul>
+            <li>本ツールは投与量を決定するものではなく、判断補助・計算補助を目的とする。</li>
+            <li>実際の投与量は患者状態・出血リスク・凝固時間・医師指示・施設運用を優先する。</li>
+            <li>院内採用品の最新版添付文書を確認すること。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="references" aria-label="参考文献">
+        <h2>参考文献</h2>
+        <article class="reference-card">
+          <p class="reference-title">ヘパフィルド透析用250単位/mLシリンジ20mL</p>
+          <p class="reference-meta">製造販売元：大塚製薬工場</p>
+          <p class="reference-meta">販売元：JMS</p>
+          <p class="reference-meta">添付文書：2024年7月31日版 PMDA</p>
+          <p class="reference-link">
+            製品詳細：
+            <a href="https://www.pmda.go.jp/PmdaSearch/rdDetail/iyaku/3334402G8042_1?user=1" target="_blank" rel="noopener noreferrer">https://www.pmda.go.jp/PmdaSearch/rdDetail/iyaku/3334402G8042_1?user=1</a>
+          </p>
+          <p class="reference-link">
+            添付文書PDF：
+            <a href="https://www.pmda.go.jp/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3334402G8042_1_10" target="_blank" rel="noopener noreferrer">https://www.pmda.go.jp/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3334402G8042_1_10</a>
+          </p>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

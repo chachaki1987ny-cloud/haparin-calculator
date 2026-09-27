@@ -1,0 +1,301 @@
+:root {
+  color-scheme: light;
+  --bg: #f3f7fb;
+  --surface: #ffffff;
+  --surface-alt: #f8fbff;
+  --text: #1f2a37;
+  --muted: #5c6b7a;
+  --primary: #1e6fb9;
+  --primary-soft: #d9ebfb;
+  --border: #d8e2ec;
+  --shadow: 0 12px 32px rgba(31, 42, 55, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #eef5fb 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+.app {
+  padding: 20px 16px 40px;
+}
+
+.card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero,
+.guide,
+.calculator,
+.results,
+.notes,
+.references {
+  padding: 20px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #f8fcff 0%, #eef7ff 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.7rem;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.lead {
+  margin-top: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.guide {
+  border-bottom: 1px solid var(--border);
+  background: #fbfdff;
+}
+
+.guide-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.guide-card {
+  padding: 16px;
+  border: 1px solid #cfe0f2;
+  border-radius: 16px;
+  background: #f3f8fe;
+}
+
+.guide-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(30, 111, 185, 0.12);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.guide-title {
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.guide ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.calculator {
+  display: grid;
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  font-weight: 600;
+  font-size: 0.96rem;
+}
+
+.field-note {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.field input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+.field input:focus {
+  outline: 2px solid rgba(30, 111, 185, 0.18);
+  border-color: var(--primary);
+  background: #fff;
+}
+
+.button {
+  margin-top: 4px;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.results {
+  border-top: 1px solid var(--border);
+}
+
+.result-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.result-card {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface-alt);
+}
+
+.result-card.total {
+  background: var(--primary-soft);
+  border-color: #bdd9f5;
+}
+
+.result-card.concentration-result {
+  background: linear-gradient(180deg, #f6fbff 0%, #edf6ff 100%);
+  border-color: #cfe0f2;
+}
+
+.result-label {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.result-value {
+  margin-top: 8px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.result-unit {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.notes {
+  border-top: 1px solid var(--border);
+  background: #fcfdff;
+}
+
+.notes ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.note-card {
+  padding: 16px;
+  border: 1px solid #d6e3ef;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.references {
+  border-top: 1px solid var(--border);
+  background: #f8fbfe;
+}
+
+.reference-card {
+  padding: 16px;
+  border: 1px solid #d6e3ef;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.reference-title {
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.reference-meta {
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.reference-link {
+  margin-top: 12px;
+  color: var(--text);
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+.reference-link a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.reference-link a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 700px) {
+  .app {
+    padding: 32px 24px 56px;
+  }
+
+  .hero,
+  .guide,
+  .calculator,
+  .results,
+  .notes,
+  .references {
+    padding: 28px;
+  }
+
+  .calculator {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    min-width: 180px;
+  }
+
+  .result-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
